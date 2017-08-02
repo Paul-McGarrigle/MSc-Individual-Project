@@ -20,7 +20,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="IndividualProject" value="0a3ca416-e50c-4363-8541-fad8ebfd8d52" />
+          <factory-entry name="Entities" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
@@ -161,5 +161,8 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.9" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.9" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.1.3.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
   </component>
 </module>

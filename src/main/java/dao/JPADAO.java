@@ -1,6 +1,6 @@
 package dao;
 
-import Entities.Users;
+import model.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;

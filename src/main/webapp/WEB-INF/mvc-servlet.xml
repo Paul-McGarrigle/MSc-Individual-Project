@@ -21,10 +21,11 @@
 		in the /WEB-INF/views directory -->
 	<beans:bean
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/jsp/" />
+		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+	<!-- Contains Hibernate Datasource information -->
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 				destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -40,7 +41,7 @@
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
-				<beans:value>Entities.Users</beans:value>
+				<beans:value>model.Users</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -52,20 +53,36 @@
 		</beans:property>
 	</beans:bean>
 
+	<!-- Provides same functionality as @bean annotation -->
+	<!-- The injected bean in the DAO Layer is the sessionFactory instance -->
+	<!-- It is linked to the DAO instance bean at the Services Layer, i.e. the bean is traversing the layers -->
 	<beans:bean id="userDAO" class="dao.JPADAO">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
+
+	<!-- Provides same functionality as @bean annotation -->
+	<!-- The injected bean in the Services Layer is the userDAO instance -->
+	<!-- It is linked to the sessionFactory instance bean at the DAO Layer, i.e. the bean is traversing the layers -->
 	<beans:bean id="userService" class="services.ServiceImplementation">
 		<beans:property name="userDAO" ref="userDAO"></beans:property>
 	</beans:bean>
 
+	<!-- Specifies which package to find the controller-->
 	<context:component-scan base-package="controllers" />
 
+	<!-- Specifies the Transaction Manager-->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
+	<!-- Links Transaction Manager Bean to Session Bean, therefore all Sessions will have -->
+	<!-- Transactional properties for ACID purposes-->
 	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 
+	<beans:bean id="messageSource"
+				class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="basename" value="message" />
+		<beans:property name="defaultEncoding" value="UTF-8" />
+	</beans:bean>
 
 </beans:beans>

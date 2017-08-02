@@ -1,6 +1,6 @@
 package dao;
 
-import Entities.Users;
+import model.Users;
 
 import java.util.Collection;
 import java.util.List;

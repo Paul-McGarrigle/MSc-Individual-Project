@@ -1,6 +1,6 @@
 package services;
 
-import Entities.Users;
+import model.Users;
 import dao.DAO;
 import org.springframework.transaction.annotation.Transactional;
 
