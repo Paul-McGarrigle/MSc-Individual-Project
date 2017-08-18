@@ -1,6 +1,7 @@
 package com.msc.controllers;
 
 import com.msc.model.User;
+import com.msc.model.UserRole;
 import com.msc.services.ServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -46,7 +47,7 @@ public class MyController {
     @RequestMapping(value = "/register", method = RequestMethod.GET)// Specified in URL
     public String reg(Model model) {
         model.addAttribute("user", new User());
-        //model.addAttribute("userRole", new UserRole());
+        model.addAttribute("userRole", new UserRole());
         model.addAttribute("listUsers", userService.listUsers());
         return "register";//Specify name of .jsp file here without .jsp at the end
     }
@@ -54,14 +55,15 @@ public class MyController {
     //For add and update person both
     @RequestMapping(value= "/user/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") @Valid User u,
-                          //@ModelAttribute("userRole") @Valid User ur,
+                          @ModelAttribute("userRole") @Valid UserRole ur,
                           BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "register";
         }
         else if(u.getId() == 0){
             //new user, add it
-            userService.addUser(u);
+            userService.addUser(u, ur);
+            //userService.addUserRole(ur);
         }else{
             //existing user, call update
             userService.updateUser(u);

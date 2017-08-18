@@ -2,6 +2,7 @@ package com.msc.services;
 
 import com.msc.dao.DAO;
 import com.msc.model.User;
+import com.msc.model.UserRole;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.ejb.EJB;
@@ -28,8 +29,8 @@ public class ServiceImplementation implements ServiceUser {
 
     @Override
     @Transactional
-    public void addUser(User u) {
-        userDAO.addUser(u);
+    public void addUser(User u, UserRole ur) {
+        userDAO.addUser(u, ur);
     }
 
     @Override
@@ -60,4 +61,9 @@ public class ServiceImplementation implements ServiceUser {
     public User findByUserName(String username) {
         return userDAO.findByUserName(username);
     }
+
+    /*@Override
+    public void addUserRole(UserRole ur) {
+        userDAO.addUserRole(ur);
+    }*/
 }

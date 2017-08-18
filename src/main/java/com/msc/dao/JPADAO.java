@@ -1,6 +1,7 @@
 package com.msc.dao;
 
 import com.msc.model.User;
+import com.msc.model.UserRole;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -34,7 +35,7 @@ public class JPADAO implements DAO {
     }
 */
     @Override
-    public void addUser(User u) {
+    public void addUser(User u, UserRole ur) {
         Session session = this.sessionFactory.getCurrentSession();
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode(u.getPassword());
@@ -42,8 +43,18 @@ public class JPADAO implements DAO {
         ++id;
         u.setId(id);
         u.setEnabled(true);
+        ur.setUser(u);
+        ur.setRole("ROLE_USER");
         session.persist(u);
+        session.persist(ur);
     }
+
+    /*@Override
+    public void addUserRole(UserRole ur) {
+        Session session = this.sessionFactory.getCurrentSession();
+        ur
+        session.persist(ur);
+    }*/
 
     @Override
     public void updateUser(User u) {
