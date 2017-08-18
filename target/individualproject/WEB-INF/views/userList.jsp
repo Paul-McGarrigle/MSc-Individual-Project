@@ -23,7 +23,7 @@
 		<th width="120">Users Password</th>
 		<th width="120">Users Email</th>
 		<th width="120">Users Age</th>
-		<th width="120">Users Gender</th>
+		<%--<th width="120">Users Gender</th>--%>
 		<th width="120">Users Birthday</th>
 		<th width="120">Users Phone No</th>
 		<th width="120">Users Country</th>
@@ -32,20 +32,22 @@
 	</tr>
 	<c:forEach items="${listUsers}" var="user">
 		<tr>
-			<td>${user.id}</td>
 			<td>${user.username}</td>
 			<td>${user.password}</td>
 			<td>${user.email}</td>
 			<td>${user.age}</td>
-			<td>${user.gender}</td>
+			<%--<td>${user.gender}</td>--%>
 			<td>${user.birthday}</td>
 			<td>${user.phone}</td>
 			<td>${user.country}</td>
-			<td><a href="<c:url value='/edit/${user.id}' />" >Edit</a></td>
-			<td><a href="<c:url value='/remove/${user.id}' />" >Delete</a></td>
+			<td><a href="<c:url value='/edit/${user.username}' />" >Edit</a></td>
+			<td><a href="<c:url value='/remove/${user.username}' />" >Delete</a></td>
 		</tr>
 	</c:forEach>
 	</table>
+</c:if>
+<c:if test="${empty listUsers}">
+	<h3>No Users Returned</h3>
 </c:if>
 </body>
 </html>

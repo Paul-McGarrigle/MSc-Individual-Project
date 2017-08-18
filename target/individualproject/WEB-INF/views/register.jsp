@@ -48,13 +48,21 @@
                     <form:hidden path="id" />
                 </td>
             </tr>
+            <tr>
+                <td>Username:</td>
+                <td><form:input path="username" readonly="true" />
+                <td><springForm:errors path="username" cssClass="error" /></td>
+                </td>
+            </tr>
         </c:if>
-        <tr>
-            <td>Username:</td>
-            <td><form:input path="username" />
-            <td><springForm:errors path="username" cssClass="error" /></td>
-            </td>
-        </tr>
+        <c:if test="${empty user.username}">
+            <tr>
+                <td>Username:</td>
+                <td><form:input path="username" />
+                <td><springForm:errors path="username" cssClass="error" /></td>
+                </td>
+            </tr>
+        </c:if>
         <tr>
             <td>Password:</td>
             <td><springForm:input path="password" /></td>
@@ -70,7 +78,7 @@
             <td><springForm:input path="age" /></td>
             <td><springForm:errors path="age" cssClass="error" /></td>
         </tr>
-        <tr>
+        <%--<tr>
             <td>Gender:</td>
             <td><springForm:select path="gender">
                 <springForm:option value="" label="Select Gender" />
@@ -78,7 +86,7 @@
                 <springForm:option value="FEMALE" label="Female" />
             </springForm:select></td>
             <td><springForm:errors path="gender" cssClass="error" /></td>
-        </tr>
+        </tr>--%>
         <tr>
             <td>Birthday:</td>
             <td><springForm:input path="birthday" placeholder="MM/dd/yyyy"/></td>
