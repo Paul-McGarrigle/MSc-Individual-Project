@@ -10,7 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "user_roles", catalog = "individual_project", uniqueConstraints = @UniqueConstraint(columnNames = { "role", "username" }))
-public class UserRole implements Serializable {
+public class UserRole{
 
     private Integer userRoleId;
     private User user;
@@ -26,7 +26,8 @@ public class UserRole implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "user_role_id", unique = true, nullable = false)
+    @Column(name = "user_role_id",
+            unique = true, nullable = false)
     public Integer getUserRoleId() {
         return this.userRoleId;
     }

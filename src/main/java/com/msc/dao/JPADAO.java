@@ -42,7 +42,7 @@ public class JPADAO implements DAO {
         u.setPassword(hashedPassword);
         ++id;
         u.setId(id);
-        u.setEnabled(true);
+        //u.setEnabled(true);
         ur.setUser(u);
         ur.setRole("ROLE_USER");
         session.persist(u);
@@ -83,9 +83,13 @@ public class JPADAO implements DAO {
     public void removeUser(String username) {
         Session session = this.sessionFactory.getCurrentSession();
         User u = (User) session.load(User.class, new String(username));
+        //UserRole ur = (UserRole) session.load(UserRole.class, new String(u.getUsername()));
         if(null != u){
             session.delete(u);
         }
+        /*if(ur != null){
+            session.delete(new Integer(ur.getUserRoleId()));
+        }*/
     }
 
     @Override

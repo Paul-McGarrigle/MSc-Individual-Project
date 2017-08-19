@@ -20,13 +20,14 @@ import java.util.Set;
 @Entity
 @Table(name="users", catalog = "individual_project")
 public class User implements Serializable {
-    @Id// Assigns type as Primary Key
-    @GeneratedValue(strategy= GenerationType.IDENTITY)// Used for Auto-Increment
+    //@Id// Assigns type as Primary Key
+    //@GeneratedValue(strategy= GenerationType.IDENTITY)// Used for Auto-Increment
     @Column(name="id")// Identifies Columns within Table
     private int id;
 
-    @NotEmpty
-    @Column(name="username") private String username;
+    @Id
+    @Column(name = "username", unique = true, nullable = false, length = 45)
+    private String username;
 
     @NotEmpty
     @Column(name="password") private String password;
@@ -55,7 +56,7 @@ public class User implements Serializable {
     @Column(name="country") private String country;
 
     @Column(name = "enabled", nullable = false)
-    private boolean enabled;
+    private boolean enabled = true;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<UserRole> userRole = new HashSet<UserRole>(0);

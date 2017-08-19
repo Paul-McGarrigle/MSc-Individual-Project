@@ -21,12 +21,13 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mappingResources">
+		<!--<property name="mappingResources">
 			<list>
 				<value>orm/Users.hbm.xml</value>
 				<value>orm/UserRoles.hbm.xml</value>
 			</list>
-		</property>
+		</property>-->
+		<property name="packagesToScan" value="com.msc.*" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
