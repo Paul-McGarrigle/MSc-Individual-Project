@@ -42,7 +42,6 @@ public class JPADAO implements DAO {
         u.setPassword(hashedPassword);
         ++id;
         u.setId(id);
-        //u.setEnabled(true);
         ur.setUser(u);
         ur.setRole("ROLE_USER");
         session.persist(u);

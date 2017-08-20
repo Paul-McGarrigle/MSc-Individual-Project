@@ -52,17 +52,22 @@ public class MyController {
         return "register";//Specify name of .jsp file here without .jsp at the end
     }
 
-    //For add and update person both
+    //For add and update person both, BindingResults must follow the object it is used with, i.e. User
     @RequestMapping(value= "/user/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") @Valid User u,
-                          @ModelAttribute("userRole") @Valid UserRole ur,
-                          BindingResult bindingResult){
+                          BindingResult bindingResult,
+                          @ModelAttribute("userRole") @Valid UserRole ur){
         if(bindingResult.hasErrors()){
             return "register";
         }
         else if(u.getId() == 0){
             //new user, add it
-            userService.addUser(u, ur);
+            try {
+                userService.addUser(u, ur);
+            } catch (Exception e) {
+                System.out.println("history already exist");
+                return "fail";
+            }
             //userService.addUserRole(ur);
         }else{
             //existing user, call update
