@@ -62,6 +62,11 @@ public class ServiceImplementation implements ServiceUser {
         return userDAO.findByUserName(username);
     }
 
+    @Override
+    public void addFriend(String u1, String u2) {
+        userDAO.addFriend(u1,u2);
+    }
+
     /*@Override
     public void addUserRole(UserRole ur) {
         userDAO.addUserRole(ur);

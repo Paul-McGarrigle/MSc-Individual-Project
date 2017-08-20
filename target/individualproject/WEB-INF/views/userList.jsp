@@ -18,7 +18,7 @@
 <c:if test="${!empty listUsers}">
 	<table class="tg">
 	<tr>
-		<th width="80">Users ID</th>
+		<%--<th width="80">Users ID</th>--%>
 		<th width="120">Users Name</th>
 		<th width="120">Users Password</th>
 		<th width="120">Users Email</th>
@@ -29,6 +29,7 @@
 		<th width="120">Users Country</th>
 		<th width="60">Edit</th>
 		<th width="60">Delete</th>
+		<th width="60">Add</th>
 	</tr>
 	<c:forEach items="${listUsers}" var="user">
 		<tr>
@@ -42,6 +43,7 @@
 			<td>${user.country}</td>
 			<td><a href="<c:url value='/edit/${user.username}' />" >Edit</a></td>
 			<td><a href="<c:url value='/remove/${user.username}' />" >Delete</a></td>
+			<td><a href="<c:url value='/addFriend/${user.username}' />" >Add</a></td>
 		</tr>
 	</c:forEach>
 	</table>

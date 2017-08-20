@@ -42,9 +42,7 @@ public class UserRole{
         return this.user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    public void setUser(User user) { this.user = user; }
 
     @Column(name = "role", nullable = false, length = 45)
     public String getRole() {

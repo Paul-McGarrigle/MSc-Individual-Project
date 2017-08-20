@@ -17,5 +17,6 @@ public interface ServiceUser {
     public User getUserById(int id);
     public void removeUser(String username);
     public User findByUserName(String username);
+    public void addFriend(String u1, String u2);
     //public void addUserRole(UserRole ur);
 }

@@ -1,5 +1,6 @@
 package com.msc.dao;
 
+import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
 import org.hibernate.Session;
@@ -8,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,6 +105,16 @@ public class JPADAO implements DAO {
         } else {
             return null;
         }
+    }
+
+    @Override
+    @Transactional
+    public void addFriend(String u1, String u2) {
+        Session session = this.sessionFactory.getCurrentSession();
+        User u = (User) session.load(User.class, new String(u1));
+        User x = (User) session.load(User.class, new String(u2));
+        Friendship f = new Friendship(u,x,0,u);
+        session.persist(f);
     }
 
 }

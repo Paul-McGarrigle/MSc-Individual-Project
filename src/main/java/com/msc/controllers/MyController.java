@@ -85,6 +85,18 @@ public class MyController {
         return "redirect:/users";
     }
 
+    @RequestMapping("/addFriend/{username}")
+    public String addFriend(@PathVariable("username") String username, ModelMap model){
+
+        //userService.removeUser(username);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+
+        userService.addFriend(currentUser, username);
+        return "redirect:/users";
+    }
+
     @RequestMapping("/edit/{username}")
     @Transactional // Needed to avoid lazy loader error, as no session will be found
     public String editUser(@PathVariable("username") String username, Model model){
