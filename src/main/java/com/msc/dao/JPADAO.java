@@ -61,7 +61,6 @@ public class JPADAO implements DAO {
     public void updateUser(User u) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(u);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -69,7 +68,6 @@ public class JPADAO implements DAO {
     public List<User> listUsers() {
         Session session = this.sessionFactory.getCurrentSession();
         List<User> userList = session.createQuery("from User").list();
-        System.out.println("DAO!!!!!!!!!!!!!!!!!");
         return userList;
     }
 
@@ -115,6 +113,28 @@ public class JPADAO implements DAO {
         User x = (User) session.load(User.class, new String(u2));
         Friendship f = new Friendship(u,x,0,u);
         session.persist(f);
+    }
+
+    @Override
+    @Transactional
+    public void acceptFriendRequest(String u1, String u2) {
+        /*sessionFactory.getCurrentSession().createQuery("update Friendship set status=1" +
+                "where user1=? AND user2=?").setParameter(0, u1).setParameter(1,u2)
+                .list();*/
+    }
+
+    @Override
+    @Transactional
+    public List<Friendship> listFriendRequests(String currentUser) {
+        //Session session = this.sessionFactory.getCurrentSession();
+        //List<Friendship> userList = session.createQuery("FROM Friendship as f WHERE f.user2='user10'").list();
+        //.setParameter("name",currentUser)
+        //Query query = session.createQuery("FROM Friendship WHERE Friendship.user2  = :name");
+        //query.setParameter("name", currentUser);
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Friendship> userList = session.createQuery("from Friendship f " +
+                "where f.user2 = 'user10'").list();
+        return userList;
     }
 
 }

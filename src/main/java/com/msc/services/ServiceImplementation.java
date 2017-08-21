@@ -1,6 +1,7 @@
 package com.msc.services;
 
 import com.msc.dao.DAO;
+import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
 import org.springframework.transaction.annotation.Transactional;
@@ -65,6 +66,18 @@ public class ServiceImplementation implements ServiceUser {
     @Override
     public void addFriend(String u1, String u2) {
         userDAO.addFriend(u1,u2);
+    }
+
+    @Override
+    @Transactional
+    public void acceptFriendRequest(String u1, String u2) {
+        userDAO.acceptFriendRequest(u1,u2);
+    }
+
+    @Override
+    @Transactional
+    public List<Friendship> listFriendRequests(String currentUser) {
+        return userDAO.listFriendRequests(currentUser);
     }
 
     /*@Override

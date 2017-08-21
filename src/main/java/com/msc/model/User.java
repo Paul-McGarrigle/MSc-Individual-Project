@@ -89,17 +89,19 @@ public class User implements Serializable {
         this.country = country;
     }
 
-    public User(String username, String password, String email, Integer age, String birthday, String phone, String country, boolean enabled, Set<UserRole> userRole) {
+    public User(int id, String username, String password, String email, Integer age, String birthday, String phone, String country, boolean enabled, Set<UserRole> userRole, Set<Friendship> requestedFriends, Set<Friendship> receivedFriends) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.age = age;
-        //this.gender = gender;
         this.birthday = birthday;
         this.phone = phone;
         this.country = country;
         this.enabled = enabled;
         this.userRole = userRole;
+        this.requestedFriends = requestedFriends;
+        this.receivedFriends = receivedFriends;
     }
 
     public int getId() {
@@ -190,5 +192,20 @@ public class User implements Serializable {
         this.userRole = userRole;
     }
 
+    public Set<Friendship> getRequestedFriends() {
+        return requestedFriends;
+    }
+
+    public void setRequestedFriends(Set<Friendship> requestedFriends) {
+        this.requestedFriends = requestedFriends;
+    }
+
+    public Set<Friendship> getReceivedFriends() {
+        return receivedFriends;
+    }
+
+    public void setReceivedFriends(Set<Friendship> receivedFriends) {
+        this.receivedFriends = receivedFriends;
+    }
 }
 

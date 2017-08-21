@@ -1,5 +1,6 @@
 package com.msc.services;
 
+import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
 
@@ -18,5 +19,7 @@ public interface ServiceUser {
     public void removeUser(String username);
     public User findByUserName(String username);
     public void addFriend(String u1, String u2);
+    public void acceptFriendRequest(String u1, String u2);
+    public List<Friendship> listFriendRequests(String currentUser);
     //public void addUserRole(UserRole ur);
 }

@@ -1,5 +1,6 @@
 package com.msc.controllers;
 
+import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
 import com.msc.services.ServiceUser;
@@ -95,6 +96,32 @@ public class MyController {
 
         userService.addFriend(currentUser, username);
         return "redirect:/users";
+    }
+
+    @RequestMapping("/acceptFriendRequest/{username}")
+    @Transactional // Needed to avoid lazy loader error, as no session will be found
+    public String acceptFriendRequest(@PathVariable("username") String username, Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+
+        // These attributes are used in the for loops on outstandingRequests.jsp
+        model.addAttribute("user", userService.findByUserName(username));
+        model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
+
+
+        userService.addFriend(currentUser, username);
+        return "outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
+    }
+
+    @RequestMapping(value = "/outstandingRequests", method = RequestMethod.GET)// Specified in URL
+    @Transactional
+    public String listFriendRequests(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("x", new Friendship());
+        model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
+        return "outstandingRequests";//Specify name of .jsp file here without .jsp at the end
     }
 
     @RequestMapping("/edit/{username}")

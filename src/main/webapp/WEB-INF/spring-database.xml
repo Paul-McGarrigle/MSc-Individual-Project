@@ -28,6 +28,7 @@
 			</list>
 		</property>-->
 		<property name="packagesToScan" value="com.msc.*" />
+
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
