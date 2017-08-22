@@ -66,10 +66,8 @@ public class MyController {
             try {
                 userService.addUser(u, ur);
             } catch (Exception e) {
-                System.out.println("history already exist");
                 return "fail";
             }
-            //userService.addUserRole(ur);
         }else{
             //existing user, call update
             userService.updateUser(u);
@@ -110,15 +108,48 @@ public class MyController {
         model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
 
 
-        userService.addFriend(currentUser, username);
-        return "outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
+        userService.acceptFriendRequest(currentUser, username);
+        return "redirect:/outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
+    }
+
+    @RequestMapping("/declineFriendRequest/{username}")
+    @Transactional // Needed to avoid lazy loader error, as no session will be found
+    public String declineFriendRequest(@PathVariable("username") String username, Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+
+        // These attributes are used in the for loops on outstandingRequests.jsp
+        model.addAttribute("user", userService.findByUserName(username));
+        model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
+
+
+        userService.declineFriendRequest(currentUser, username);
+        return "redirect:/outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
+    }
+
+    @RequestMapping("/blockUser/{username}")
+    @Transactional // Needed to avoid lazy loader error, as no session will be found
+    public String blockUser(@PathVariable("username") String username, Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+
+        // These attributes are used in the for loops on outstandingRequests.jsp
+        model.addAttribute("user", userService.findByUserName(username));
+        model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
+
+
+        userService.blockUser(currentUser, username);
+        return "redirect:/outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
     }
 
     @RequestMapping(value = "/outstandingRequests", method = RequestMethod.GET)// Specified in URL
     @Transactional
-    public String listFriendRequests(Model model) {
+    public String listFriendRequests(ModelMap model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
         model.addAttribute("x", new Friendship());
         model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
         return "outstandingRequests";//Specify name of .jsp file here without .jsp at the end

@@ -28,14 +28,16 @@
             <th width="120">Users Name</th>
             <th width="60">Accept</th>
             <th width="60">Decline</th>
+            <th width="60">Block</th>
             <th width="60">Friends In Common</th>
         </tr>
         <c:forEach items="${listUsers}" var="x">
             <tr>
                 <td>${x.user1.username}</td>
-                <td><a href="<c:url value='/acceptFriendRequest/${x.user1}' />" >Accept</a></td>
-                <td><a href="<c:url value='/declineFriendRequest/${x.user1}' />" >Decline</a></td>
-                <td><a href="<c:url value='/commonFriendsList/${x.user1}' />" >Friends In Common</a></td>
+                <td><a href="<c:url value='/acceptFriendRequest/${x.user1.username}' />" >Accept</a></td>
+                <td><a href="<c:url value='/declineFriendRequest/${x.user1.username}' />" >Decline</a></td>
+                <td><a href="<c:url value='/blockUser/${x.user1.username}' />" >Block</a></td>
+                <td><a href="<c:url value='/commonFriendsList/${x.user1.username}' />" >Friends In Common</a></td>
             </tr>
         </c:forEach>
     </table>

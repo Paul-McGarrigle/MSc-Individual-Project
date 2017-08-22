@@ -3,6 +3,7 @@ package com.msc.dao;
 import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -107,33 +108,53 @@ public class JPADAO implements DAO {
 
     @Override
     @Transactional
-    public void addFriend(String u1, String u2) {
+    public void addFriend(String currentUser, String userName) {
         Session session = this.sessionFactory.getCurrentSession();
-        User u = (User) session.load(User.class, new String(u1));
-        User x = (User) session.load(User.class, new String(u2));
+        User u = (User) session.load(User.class, new String(currentUser));
+        User x = (User) session.load(User.class, new String(userName));
         Friendship f = new Friendship(u,x,0,u);
         session.persist(f);
     }
 
     @Override
     @Transactional
-    public void acceptFriendRequest(String u1, String u2) {
-        /*sessionFactory.getCurrentSession().createQuery("update Friendship set status=1" +
-                "where user1=? AND user2=?").setParameter(0, u1).setParameter(1,u2)
-                .list();*/
+    public void acceptFriendRequest(String currentUser, String userName) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update Friendship f set f.status = 1"+
+                " where f.user2 =:current and f.user1 =:user")
+                .setString("current", currentUser)
+                .setString("user",userName);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void declineFriendRequest(String currentUser, String userName) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update Friendship f set f.status = 2"+
+                " where f.user2 =:current and f.user1 =:user")
+                .setString("current", currentUser)
+                .setString("user",userName);
+        query.executeUpdate();
+    }
+
+    @Override
+    public void blockUser(String currentUser, String userName) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update Friendship f set f.status = 3"+
+                " where f.user2 =:current and f.user1 =:user")
+                .setString("current", currentUser)
+                .setString("user",userName);
+        query.executeUpdate();
     }
 
     @Override
     @Transactional
     public List<Friendship> listFriendRequests(String currentUser) {
-        //Session session = this.sessionFactory.getCurrentSession();
-        //List<Friendship> userList = session.createQuery("FROM Friendship as f WHERE f.user2='user10'").list();
-        //.setParameter("name",currentUser)
-        //Query query = session.createQuery("FROM Friendship WHERE Friendship.user2  = :name");
-        //query.setParameter("name", currentUser);
         Session session = this.sessionFactory.getCurrentSession();
+
+        // Must use setString here as setParameter throws reflection getter error
         List<Friendship> userList = session.createQuery("from Friendship f " +
-                "where f.user2 = 'user10'").list();
+                "where f.user2 = :name and f.status = 0").setString("name",currentUser).list();
         return userList;
     }
 

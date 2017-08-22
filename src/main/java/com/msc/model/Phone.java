@@ -12,12 +12,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Phone {
-
-
     String message() default "Must contain at least 10 digits";
-
     Class<?>[] groups() default {};
-
     Class<? extends Payload>[] payload() default {};
-
 }

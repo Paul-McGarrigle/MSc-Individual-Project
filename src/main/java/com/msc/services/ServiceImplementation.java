@@ -64,14 +64,24 @@ public class ServiceImplementation implements ServiceUser {
     }
 
     @Override
-    public void addFriend(String u1, String u2) {
-        userDAO.addFriend(u1,u2);
+    public void addFriend(String currentUser, String userName) {
+        userDAO.addFriend(currentUser,userName);
     }
 
     @Override
     @Transactional
-    public void acceptFriendRequest(String u1, String u2) {
-        userDAO.acceptFriendRequest(u1,u2);
+    public void acceptFriendRequest(String currentUser, String userName) {
+        userDAO.acceptFriendRequest(currentUser,userName);
+    }
+
+    @Override
+    public void declineFriendRequest(String currentUser, String userName) {
+        userDAO.declineFriendRequest(currentUser, userName);
+    }
+
+    @Override
+    public void blockUser(String currentUser, String userName) {
+        userDAO.blockUser(currentUser, userName);
     }
 
     @Override

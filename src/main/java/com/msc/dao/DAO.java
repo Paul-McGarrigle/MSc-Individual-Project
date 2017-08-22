@@ -17,8 +17,10 @@ public interface DAO {
     public User getUserById(int id);
     public void removeUser(String username);
     public User findByUserName(String username);
-    public void addFriend(String u1, String u2);
-    public void acceptFriendRequest(String u1, String u2);
+    public void addFriend(String currentUser, String userName);
+    public void acceptFriendRequest(String currentUser, String userName);
+    public void declineFriendRequest(String currentUser, String userName);
+    public void blockUser(String currentUser, String userName);
     public List<Friendship> listFriendRequests(String currentUser);
     //public void addUserRole(UserRole ur);
 }

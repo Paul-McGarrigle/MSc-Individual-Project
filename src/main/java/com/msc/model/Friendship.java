@@ -18,6 +18,9 @@ public class Friendship implements Serializable{
             unique = true, nullable = false)
     private Integer friendshipId;
 
+    // One side of relationship is FetchType.Lazy but Many side must be FetchType.Eager because with lazy data
+    // is loaded when needed but collections will not be loaded in time, therefore Many side must be eager or
+    // org.hibernate.LazyInitializationException will be thrown
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_one_id", nullable = false)
     private User user1;
