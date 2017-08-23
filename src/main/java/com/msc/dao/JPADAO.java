@@ -3,6 +3,7 @@ package com.msc.dao;
 import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
+import com.msc.model.Wall;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -156,6 +157,15 @@ public class JPADAO implements DAO {
         List<Friendship> userList = session.createQuery("from Friendship f " +
                 "where f.user2 = :name and f.status = 0").setString("name",currentUser).list();
         return userList;
+    }
+
+    @Override
+    @Transactional
+    public List<Wall> showUserWall(String currentUser) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Wall> commentList = session.createQuery("from Wall w " +
+                "where w.wallOwner = :name").setString("name",currentUser).list();
+        return commentList;
     }
 
 }

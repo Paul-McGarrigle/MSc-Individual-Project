@@ -3,6 +3,7 @@ package com.msc.controllers;
 import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
+import com.msc.model.Wall;
 import com.msc.services.ServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -142,6 +143,16 @@ public class MyController {
 
         userService.blockUser(currentUser, username);
         return "redirect:/outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
+    }
+
+    @RequestMapping(value = "/wall", method = RequestMethod.GET)// Specified in URL
+    @Transactional
+    public String userWall(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("user", new Wall());
+        model.addAttribute("listUsers", userService.showUserWall(currentUser));
+        return "userWall";//Specify name of .jsp file here without .jsp at the end
     }
 
     @RequestMapping(value = "/outstandingRequests", method = RequestMethod.GET)// Specified in URL

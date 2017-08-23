@@ -6,29 +6,26 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/controllers/MyController.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/controllers/MyController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/dao/DAO.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/dao/DAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/dao/JPADAO.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/dao/JPADAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/model/Friendship.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/model/Friendship.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/model/PhoneValidator.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/model/PhoneValidator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/model/User.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/model/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/model/Wall.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/model/Wall.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/services/ServiceImplementation.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/services/ServiceImplementation.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/msc/services/ServiceUser.class" afterPath="$PROJECT_DIR$/target/classes/com/msc/services/ServiceUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject.war" afterPath="$PROJECT_DIR$/target/individualproject.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/controllers/MyController.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/controllers/MyController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/dao/DAO.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/dao/DAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/dao/JPADAO.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/dao/JPADAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/Friendship.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/Friendship.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/PhoneValidator.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/PhoneValidator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/User.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/Wall.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/model/Wall.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/services/ServiceImplementation.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/services/ServiceImplementation.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/services/ServiceUser.class" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/classes/com/msc/services/ServiceUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/controllers/MyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/controllers/MyController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/Phone.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/Phone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/PhoneValidator.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/PhoneValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/Wall.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/Wall.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceImplementation.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceImplementation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/individualproject/WEB-INF/views/outstandingRequests.jsp" afterPath="$PROJECT_DIR$/target/individualproject/WEB-INF/views/outstandingRequests.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -58,8 +55,31 @@
       <file leaf-file-name="MyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/controllers/MyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="142" column="29" lean-forward="false" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
+            <state relative-caret-position="373">
+              <caret line="153" column="76" lean-forward="false" selection-start-line="153" selection-start-column="76" selection-end-line="153" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Wall.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/Wall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="651">
+              <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1114#1115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userWall.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userWall.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="488">
+              <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -68,8 +88,8 @@
       <file leaf-file-name="ServiceUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/services/ServiceUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="23" selection-end-column="63" />
+            <state relative-caret-position="420">
+              <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -78,13 +98,13 @@
       <file leaf-file-name="ServiceImplementation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/services/ServiceImplementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="83" column="47" lean-forward="false" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+            <state relative-caret-position="376">
+              <caret line="96" column="36" lean-forward="false" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
               <folding>
-                <element signature="e#1882#1883#0" expanded="true" />
-                <element signature="e#1938#1939#0" expanded="true" />
-                <element signature="e#2041#2042#0" expanded="true" />
-                <element signature="e#2103#2104#0" expanded="true" />
+                <element signature="e#1909#1910#0" expanded="true" />
+                <element signature="e#1965#1966#0" expanded="true" />
+                <element signature="e#2221#2222#0" expanded="true" />
+                <element signature="e#2277#2278#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,8 +113,8 @@
       <file leaf-file-name="DAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="22" column="63" lean-forward="false" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+            <state relative-caret-position="420">
+              <caret line="25" column="53" lean-forward="false" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -103,28 +123,8 @@
       <file leaf-file-name="JPADAO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="132" column="79" lean-forward="false" selection-start-line="132" selection-start-column="79" selection-end-line="132" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="outstandingRequests.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Friendship.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-386">
-              <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+            <state relative-caret-position="530">
+              <caret line="166" column="42" lean-forward="false" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -133,9 +133,18 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="56" />
-              <folding />
+            <state relative-caret-position="313">
+              <caret line="97" column="289" lean-forward="false" selection-start-line="97" selection-start-column="289" selection-end-line="97" selection-end-column="289" />
+              <folding>
+                <element signature="e#5839#5840#0" expanded="true" />
+                <element signature="e#5872#5873#0" expanded="true" />
+                <element signature="e#5927#5928#0" expanded="true" />
+                <element signature="e#5971#5972#0" expanded="true" />
+                <element signature="e#6015#6016#0" expanded="true" />
+                <element signature="e#6052#6053#0" expanded="true" />
+                <element signature="e#6115#6116#0" expanded="true" />
+                <element signature="e#6167#6168#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,8 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/hello/hello.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/dao/MyDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entities/User.java" />
@@ -240,11 +247,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/friendList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-database.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/msc/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/msc/model/Phone.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/msc/model/PhoneValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/msc/model/Wall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/msc/model/User.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userWall.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/msc/controllers/MyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java" />
@@ -386,6 +395,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -671,7 +681,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1236,12 +1245,13 @@
       <workItem from="1503142466018" duration="10618000" />
       <workItem from="1503235936595" duration="12637000" />
       <workItem from="1503319115561" duration="26815000" />
-      <workItem from="1503406914468" duration="14006000" />
+      <workItem from="1503406914468" duration="16133000" />
+      <workItem from="1503488807968" duration="5066000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210839000" />
+    <option name="totallyTimeSpent" value="218032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
@@ -1268,11 +1278,11 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34654588" sideWeight="0.4940476" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18799546" sideWeight="0.4940476" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21103896" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1301,13 +1311,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1401,14 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="52" column="64" lean-forward="false" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/authentication/MyUserDetailsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1496,14 +1491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/friendList.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1516,7 +1503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1524,6 +1510,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1536,79 +1529,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-321">
+          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="29" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/Wall.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="651">
+          <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="56" />
-          <folding />
+        <state relative-caret-position="313">
+          <caret line="97" column="289" lean-forward="false" selection-start-line="97" selection-start-column="289" selection-end-line="97" selection-end-column="289" />
+          <folding>
+            <element signature="e#5839#5840#0" expanded="true" />
+            <element signature="e#5872#5873#0" expanded="true" />
+            <element signature="e#5927#5928#0" expanded="true" />
+            <element signature="e#5971#5972#0" expanded="true" />
+            <element signature="e#6015#6016#0" expanded="true" />
+            <element signature="e#6052#6053#0" expanded="true" />
+            <element signature="e#6115#6116#0" expanded="true" />
+            <element signature="e#6167#6168#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userWall.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-386">
-          <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+        <state relative-caret-position="488">
+          <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/controllers/MyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="142" column="29" lean-forward="false" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="22" column="63" lean-forward="false" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        <state relative-caret-position="373">
+          <caret line="153" column="76" lean-forward="false" selection-start-line="153" selection-start-column="76" selection-end-line="153" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/services/ServiceUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="23" selection-end-column="63" />
+        <state relative-caret-position="420">
+          <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="25" column="53" lean-forward="false" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/services/ServiceImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="83" column="47" lean-forward="false" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+        <state relative-caret-position="376">
+          <caret line="96" column="36" lean-forward="false" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
           <folding>
-            <element signature="e#1882#1883#0" expanded="true" />
-            <element signature="e#1938#1939#0" expanded="true" />
-            <element signature="e#2041#2042#0" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1965#1966#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2277#2278#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="132" column="79" lean-forward="false" selection-start-line="132" selection-start-column="79" selection-end-line="132" selection-end-column="79" />
+        <state relative-caret-position="530">
+          <caret line="166" column="42" lean-forward="false" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
           <folding />
         </state>
       </provider>

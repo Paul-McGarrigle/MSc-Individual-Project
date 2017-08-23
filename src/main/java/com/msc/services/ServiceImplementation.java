@@ -4,6 +4,7 @@ import com.msc.dao.DAO;
 import com.msc.model.Friendship;
 import com.msc.model.User;
 import com.msc.model.UserRole;
+import com.msc.model.Wall;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.ejb.EJB;
@@ -88,6 +89,12 @@ public class ServiceImplementation implements ServiceUser {
     @Transactional
     public List<Friendship> listFriendRequests(String currentUser) {
         return userDAO.listFriendRequests(currentUser);
+    }
+
+    @Override
+    @Transactional
+    public List<Wall> showUserWall(String currentUser) {
+        return userDAO.showUserWall(currentUser);
     }
 
     /*@Override
