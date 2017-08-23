@@ -97,6 +97,12 @@ public class ServiceImplementation implements ServiceUser {
         return userDAO.showUserWall(currentUser);
     }
 
+    @Override
+    @Transactional
+    public void addComment(String currentUser, String userName, String comment) {
+        userDAO.addComment(currentUser, userName, comment);
+    }
+
     /*@Override
     public void addUserRole(UserRole ur) {
         userDAO.addUserRole(ur);

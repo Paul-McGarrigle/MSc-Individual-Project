@@ -168,4 +168,13 @@ public class JPADAO implements DAO {
         return commentList;
     }
 
+    @Override
+    public void addComment(String currentUser, String userName, String comment) {
+        Session session = this.sessionFactory.getCurrentSession();
+        User u = (User) session.load(User.class, new String(currentUser));
+        User x = (User) session.load(User.class, new String(userName));
+        Wall w = new Wall(x, u, comment);
+        session.persist(w);
+    }
+
 }

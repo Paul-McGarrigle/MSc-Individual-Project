@@ -155,6 +155,25 @@ public class MyController {
         return "userWall";//Specify name of .jsp file here without .jsp at the end
     }
 
+    @RequestMapping(value = "/addComment", method=RequestMethod.POST)
+    @Transactional
+    public String addComment(@RequestParam("comment") String comment, ModelMap model){
+
+        //userService.removeUser(username);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+        model.addAttribute("user", new User());
+        //model.addAttribute("owner", owner);
+
+        /*if(owner == null){
+            owner = currentUser;
+        }*/
+
+        userService.addComment(currentUser, currentUser, comment);
+        return "redirect:/wall";
+    }
+
     @RequestMapping(value = "/outstandingRequests", method = RequestMethod.GET)// Specified in URL
     @Transactional
     public String listFriendRequests(ModelMap model) {
