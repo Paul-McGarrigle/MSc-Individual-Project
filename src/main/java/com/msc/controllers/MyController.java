@@ -30,6 +30,7 @@ import javax.validation.Valid;
 @Controller
 public class MyController {
     private ServiceUser userService;
+    private String userWall = "";
 
 
     @Autowired(required=true)
@@ -152,25 +153,19 @@ public class MyController {
         String currentUser = auth.getName(); //get logged in username
         model.addAttribute("user", new Wall());
         model.addAttribute("listUsers", userService.showUserWall(currentUser));
+        for(Wall w: userService.showUserWall(currentUser)){
+            userWall = w.getWallOwner().getUsername();
+        }
         return "userWall";//Specify name of .jsp file here without .jsp at the end
     }
 
     @RequestMapping(value = "/addComment", method=RequestMethod.POST)
     @Transactional
     public String addComment(@RequestParam("comment") String comment, ModelMap model){
-
-        //userService.removeUser(username);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentUser = auth.getName(); //get logged in username
         model.addAttribute("username", currentUser);
-        model.addAttribute("user", new User());
-        //model.addAttribute("owner", owner);
-
-        /*if(owner == null){
-            owner = currentUser;
-        }*/
-
-        userService.addComment(currentUser, currentUser, comment);
+        userService.addComment(currentUser, userWall, comment);
         return "redirect:/wall";
     }
 

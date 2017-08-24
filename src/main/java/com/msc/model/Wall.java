@@ -17,11 +17,11 @@ public class Wall implements Serializable {
             unique = true, nullable = false)
     private Integer wallId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinColumn(name = "wall_owner", nullable = false)
     private User wallOwner;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinColumn(name = "comment_owner", nullable = false)
     private User commentOwner;
 

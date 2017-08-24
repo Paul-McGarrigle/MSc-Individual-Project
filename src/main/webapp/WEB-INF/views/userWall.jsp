@@ -34,7 +34,7 @@
 </head>
 <body>
 <br>
-<h3>Users List</h3>
+<h3><b id = "userName" name = "userName"></b> Wall</h3>
 <c:if test="${!empty listUsers}">
     <table class="tg">
         <tr>
@@ -52,40 +52,41 @@
             </tr>
         </c:forEach>
     </table>
+    <c:url var="addAction" value="/addComment" ></c:url>
 
+    <form:form name = "formName" action="${addAction}" commandName="user">
+        <table>
+            <tr>
+                <td>Type:</td>
+                    <%--<td><springForm:input path="comment" /></td>--%>
+                <td><input type='text' name='comment' /></td>
+                <td><springForm:errors path="comment" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="<spring:message text="Post"/>" />
+
+                </td>
+            </tr>
+        </table>
+    </form:form>
 </c:if>
 <c:if test="${empty listUsers}">
     <h3>No Users Returned</h3>
 </c:if>
 <br>
 
-
-<c:url var="addAction" value="/addComment" ></c:url>
-
-<form:form action="${addAction}" commandName="user">
-    <table>
-        <tr>
-            <td>Type:</td>
-            <%--<td><springForm:input path="comment" /></td>--%>
-            <td><input type='text' name='comment' /></td>
-            <td><springForm:errors path="comment" /></td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="<spring:message text="Post"/>" />
-
-            </td>
-        </tr>
-    </table>
-</form:form>
 </body>
 <footer>
     <script>
         //document.getElementById("owner");
         //document.getElementById("owner").innerHTML = "Hello World"
-        var x = document.getElementById("owner").valueOf();
+        //<script>document.write(x)close script tag
+        var x = document.getElementById("owner").firstChild.nodeValue;
+        //var x = document.getElementsById("owner").firstChild.nodeValue;
         console.log(x);
+        document.getElementById("userName").innerHTML = x;
+        document.getElementById("wallOwner").innerHTML = x;
     </script>
 </footer>
 </html>
