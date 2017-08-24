@@ -63,12 +63,6 @@
                 <td><springForm:errors path="comment" /></td>
             </tr>
             <tr>
-                <td>Name:</td>
-                    <%--<td><springForm:input path="comment" /></td>--%>
-                <td name='userWall'></td>
-            </tr>
-
-            <tr>
                 <td colspan="2">
                     <input type="submit" value="<spring:message text="Post"/>" />
 

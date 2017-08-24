@@ -37,7 +37,7 @@
                 <td><a href="<c:url value='/acceptFriendRequest/${x.user1.username}' />" >Accept</a></td>
                 <td><a href="<c:url value='/declineFriendRequest/${x.user1.username}' />" >Decline</a></td>
                 <td><a href="<c:url value='/blockUser/${x.user1.username}' />" >Block</a></td>
-                <td><a href="<c:url value='/commonFriendsList/${x.user1.username}' />" >Friends In Common</a></td>
+                <td><a href="<c:url value='/wall/${x.user1.username}' />" >See wall</a></td>
             </tr>
         </c:forEach>
     </table>

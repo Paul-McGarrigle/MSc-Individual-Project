@@ -31,6 +31,8 @@ import javax.validation.Valid;
 public class MyController {
     private ServiceUser userService;
     private String userWall = "";
+    private boolean friendsWall;
+    private String url;
 
 
     @Autowired(required=true)
@@ -166,8 +168,39 @@ public class MyController {
         String currentUser = auth.getName(); //get logged in username
         model.addAttribute("username", currentUser);
         userService.addComment(currentUser, userWall, comment);
-        return "redirect:/wall";
+        if(friendsWall){
+            url = "redirect:/wall/"+userWall;
+        } else {
+            url = "redirect:/wall";
+        }
+        return url;
     }
+
+    @RequestMapping(value = "/wall/{username}", method = RequestMethod.GET)// Specified in URL
+    @Transactional
+    public String friendWall(@PathVariable("username") String username,Model model) {
+        /*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username*/
+        model.addAttribute("user", new Wall());
+        model.addAttribute("listUsers", userService.showUserWall(username));
+        for(Wall w: userService.showUserWall(username)){
+            userWall = w.getWallOwner().getUsername();
+        }
+        friendsWall = true;
+        return "userWall";//Specify name of .jsp file here without .jsp at the end
+    }
+
+    /*@RequestMapping(value = "/addCommentFriend", method=RequestMethod.POST)
+    @Transactional
+    public String addCommentFriend(@RequestParam("comment") String comment, ModelMap model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+        userService.addComment(currentUser, userWall, comment);
+        String s = "redirect:/wall/"+userWall;
+        System.out.println(s);
+        return s;
+    }*/
 
     @RequestMapping(value = "/outstandingRequests", method = RequestMethod.GET)// Specified in URL
     @Transactional
