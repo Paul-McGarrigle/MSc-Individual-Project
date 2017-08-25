@@ -177,4 +177,12 @@ public class JPADAO implements DAO {
         session.persist(w);
     }
 
+    @Override
+    public List<User> searchUsers(String username) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<User> userList = session.createQuery("from User u " +
+                "where u.username like :name").setString("name", "%" + username + "%").list();
+        return userList;
+    }
+
 }

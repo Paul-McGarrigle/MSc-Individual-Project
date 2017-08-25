@@ -103,6 +103,12 @@ public class ServiceImplementation implements ServiceUser {
         userDAO.addComment(currentUser, userName, comment);
     }
 
+    @Override
+    @Transactional
+    public List<User> searchUsers(String username) {
+        return userDAO.searchUsers(username);
+    }
+
     /*@Override
     public void addUserRole(UserRole ur) {
         userDAO.addUserRole(ur);

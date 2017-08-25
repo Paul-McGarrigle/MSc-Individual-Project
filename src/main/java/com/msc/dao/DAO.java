@@ -25,5 +25,6 @@ public interface DAO {
     public List<Friendship> listFriendRequests(String currentUser);
     public List<Wall> showUserWall(String currentUser);
     public void addComment(String currentUser, String userName, String comment);
+    public List<User> searchUsers(String username);
     //public void addUserRole(UserRole ur);
 }

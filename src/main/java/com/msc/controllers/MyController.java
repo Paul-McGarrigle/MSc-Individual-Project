@@ -190,18 +190,6 @@ public class MyController {
         return "userWall";//Specify name of .jsp file here without .jsp at the end
     }
 
-    /*@RequestMapping(value = "/addCommentFriend", method=RequestMethod.POST)
-    @Transactional
-    public String addCommentFriend(@RequestParam("comment") String comment, ModelMap model){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String currentUser = auth.getName(); //get logged in username
-        model.addAttribute("username", currentUser);
-        userService.addComment(currentUser, userWall, comment);
-        String s = "redirect:/wall/"+userWall;
-        System.out.println(s);
-        return s;
-    }*/
-
     @RequestMapping(value = "/outstandingRequests", method = RequestMethod.GET)// Specified in URL
     @Transactional
     public String listFriendRequests(ModelMap model) {
@@ -305,4 +293,57 @@ public class MyController {
         return model;
 
     }
+
+    @RequestMapping(value = "/searchResults", method = RequestMethod.GET)// Specified in URL
+    @Transactional
+    public String results(Model model) {
+        /*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("z", new User());*/
+        //model.addAttribute("listUsers", userService.findByUserName(currentUser));
+        //model.addAttribute("user", new User());
+        return "searchResults";//Specify name of .jsp file here without .jsp at the end
+    }
+
+    /*@RequestMapping(value = "/search")
+    @Transactional
+    public String searchUser(@RequestParam("search") String search, ModelMap model){
+
+        model.addAttribute("user", new User());
+        model.addAttribute("listFriends", userService.findByUserName(search));
+
+        System.out.println(search);
+        System.out.println(userService.findByUserName(search).getUsername());
+        return "redirect:/searchResults";
+    }*/
+
+    /*@RequestMapping(value="/searching")
+    public ModelAndView Search(@RequestParam(value = "searchTerm", required = false) String pSearchTerm, HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mav = new ModelAndView("searchResults");
+
+        mav.addObject("searchTerm", pSearchTerm);
+        mav.addObject("searchResult", userService.findByUserName(pSearchTerm));
+
+        return mav;
+    }*/
+
+    /*@RequestMapping(value = "/searching/{searchString}")
+    public String Search(@RequestParam("searchString") String searchString) {
+
+        if(searchString != null){
+            userService.findByUserName(searchString);
+        }
+
+        return "searchResults";
+    }*/
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)// Specified in URL
+    @Transactional
+    public String listResults(@RequestParam("search") String search,Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("listUsers", userService.searchUsers(search));
+        System.out.println(search);
+        return "userList";//Specify name of .jsp file here without .jsp at the end
+    }
+
 }
