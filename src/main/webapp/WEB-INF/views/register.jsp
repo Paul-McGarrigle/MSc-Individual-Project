@@ -12,29 +12,51 @@
 <%@ page session="false" %>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
     <title>Register</title>
+    <style>
+        h1, h2{
+            color:white;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #reg-box {
+            width: 400px;
+            padding: 20px;
+            margin: 100px auto;
+            background: #fff;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border: 1px solid #000;
+        }
+
+        .error {
+            color: #3b5998;
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body>
+<body style="background-color: #3b5998">
 <h1>
-    Add a User
+    Register to create an Account!
 </h1>
 
-<style type="text/css">
+<%--<style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
     .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
     .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
     .tg .tg-4eph{background-color:#f9f9f9}
 
-    .error {
-        color: #ff0000;
-        font-style: italic;
-        font-weight: bold;
-    }
-</style>
+
+</style>--%>
 
 <c:url var="addAction" value="/user/add" ></c:url>
 
-<form:form action="${addAction}" commandName="user">
+<form:form action="${addAction}" commandName="user" class="form-group" id="reg-box">
     <table>
         <c:if test="${!empty user.username}">
             <tr>
@@ -44,13 +66,13 @@
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="id" readonly="true" size="8"  disabled="true" />
+                    <form:input path="id" readonly="true" size="8"  disabled="true" class="form-control"/>
                     <form:hidden path="id" />
                 </td>
             </tr>
             <tr>
                 <td>Username:</td>
-                <td><form:input path="username" readonly="true" />
+                <td><form:input path="username" readonly="true" class="form-control"/>
                 <td><springForm:errors path="username" cssClass="error" /></td>
                 </td>
             </tr>
@@ -58,24 +80,24 @@
         <c:if test="${empty user.username}">
             <tr>
                 <td>Username:</td>
-                <td><form:input path="username" />
+                <td><form:input path="username" class="form-control"/>
                 <td><springForm:errors path="username" cssClass="error" /></td>
                 </td>
             </tr>
         </c:if>
         <tr>
             <td>Password:</td>
-            <td><springForm:input path="password" /></td>
+            <td><springForm:input path="password" class="form-control"/></td>
             <td><springForm:errors path="password" cssClass="error" /></td>
         </tr>
         <tr>
             <td>Email:</td>
-            <td><springForm:input path="email" /></td>
+            <td><springForm:input path="email" class="form-control"/></td>
             <td><springForm:errors path="email" cssClass="error" /></td>
         </tr>
         <tr>
             <td>Age:</td>
-            <td><springForm:input path="age" /></td>
+            <td><springForm:input path="age" class="form-control"/></td>
             <td><springForm:errors path="age" cssClass="error" /></td>
         </tr>
         <%--<tr>
@@ -89,17 +111,17 @@
         </tr>--%>
         <tr>
             <td>Birthday:</td>
-            <td><springForm:input path="birthday" placeholder="MM/dd/yyyy"/></td>
+            <td><springForm:input path="birthday" placeholder="MM/dd/yyyy" class="form-control"/></td>
             <td><springForm:errors path="birthday" cssClass="error" /></td>
         </tr>
         <tr>
             <td>Phone:</td>
-            <td><springForm:input path="phone" /></td>
+            <td><springForm:input path="phone" class="form-control" /></td>
             <td><springForm:errors path="phone" cssClass="error" /></td>
         </tr>
         <tr>
             <td>Country:</td>
-            <td><springForm:input path="country" /></td>
+            <td><springForm:input path="country" class="form-control" /></td>
             <td><springForm:errors path="country" cssClass="error" /></td>
         </tr>
 
@@ -107,16 +129,18 @@
         <tr>
             <td colspan="2">
                 <c:if test="${!empty user.username}">
-                    <input type="submit"
-                           value="<spring:message text="Edit User"/>" />
+                    <input type="submit" class="btn btn-primary" style="background-color: #3b5998"
+                           value="<spring:message text="Edit"/>" />
                 </c:if>
                 <c:if test="${empty user.username}">
-                    <input type="submit"
-                           value="<spring:message text="Add User"/>" />
+                    <input type="submit" class="btn btn-primary" style="background-color: #3b5998"
+                           value="<spring:message text="Register"/>" />
                 </c:if>
             </td>
         </tr>
     </table>
 </form:form>
+
+<h2>Return to Login page <a href="<c:url value='/login' />" >here!</a></h2>
 </body>
 </html>

@@ -86,6 +86,11 @@ public class ServiceImplementation implements ServiceUser {
     }
 
     @Override
+    public void unBlockUser(String currentUser, String userName) {
+        userDAO.unBlockUser(currentUser, userName);
+    }
+
+    @Override
     @Transactional
     public List<Friendship> listFriendRequests(String currentUser) {
         return userDAO.listFriendRequests(currentUser);
@@ -98,6 +103,11 @@ public class ServiceImplementation implements ServiceUser {
     }
 
     @Override
+    public List<Wall> activityFeed(String currentUser) {
+        return userDAO.activityFeed(currentUser);
+    }
+
+    @Override
     @Transactional
     public void addComment(String currentUser, String userName, String comment) {
         userDAO.addComment(currentUser, userName, comment);
@@ -107,6 +117,16 @@ public class ServiceImplementation implements ServiceUser {
     @Transactional
     public List<User> searchUsers(String username) {
         return userDAO.searchUsers(username);
+    }
+
+    @Override
+    public List<Friendship> listFriends(String currentUser) {
+        return userDAO.listFriends(currentUser);
+    }
+
+    @Override
+    public List<Friendship> listBlock(String currentUser) {
+        return userDAO.listBlock(currentUser);
     }
 
     /*@Override

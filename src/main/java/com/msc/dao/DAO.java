@@ -22,9 +22,13 @@ public interface DAO {
     public void acceptFriendRequest(String currentUser, String userName);
     public void declineFriendRequest(String currentUser, String userName);
     public void blockUser(String currentUser, String userName);
+    public void unBlockUser(String currentUser, String userName);
     public List<Friendship> listFriendRequests(String currentUser);
     public List<Wall> showUserWall(String currentUser);
+    public List<Wall> activityFeed(String currentUser);
     public void addComment(String currentUser, String userName, String comment);
     public List<User> searchUsers(String username);
+    public List<Friendship> listFriends(String currentUser);
+    public List<Friendship> listBlock(String currentUser);
     //public void addUserRole(UserRole ur);
 }

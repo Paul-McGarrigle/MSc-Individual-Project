@@ -149,6 +149,16 @@ public class JPADAO implements DAO {
     }
 
     @Override
+    public void unBlockUser(String currentUser, String userName) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("update Friendship f set f.status = 4"+
+                " where f.user2 =:current and f.user1 =:user")
+                .setString("current", currentUser)
+                .setString("user",userName);
+        query.executeUpdate();
+    }
+
+    @Override
     @Transactional
     public List<Friendship> listFriendRequests(String currentUser) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -169,6 +179,14 @@ public class JPADAO implements DAO {
     }
 
     @Override
+    public List<Wall> activityFeed(String currentUser) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Wall> commentList = session.createQuery("from Wall w " +
+                "where w.wallOwner = :name or w.commentOwner = :name").setString("name",currentUser).list();
+        return commentList;
+    }
+
+    @Override
     public void addComment(String currentUser, String userName, String comment) {
         Session session = this.sessionFactory.getCurrentSession();
         User u = (User) session.load(User.class, new String(currentUser));
@@ -182,6 +200,26 @@ public class JPADAO implements DAO {
         Session session = this.sessionFactory.getCurrentSession();
         List<User> userList = session.createQuery("from User u " +
                 "where u.username like :name").setString("name", "%" + username + "%").list();
+        return userList;
+    }
+
+    @Override
+    public List<Friendship> listFriends(String currentUser) {
+        Session session = this.sessionFactory.getCurrentSession();
+
+        // Must use setString here as setParameter throws reflection getter error
+        List<Friendship> userList = session.createQuery("from Friendship f " +
+                "where f.user2 = :name and f.status = 1").setString("name",currentUser).list();
+        return userList;
+    }
+
+    @Override
+    public List<Friendship> listBlock(String currentUser) {
+        Session session = this.sessionFactory.getCurrentSession();
+
+        // Must use setString here as setParameter throws reflection getter error
+        List<Friendship> userList = session.createQuery("from Friendship f " +
+                "where f.user2 = :name and f.status = 3").setString("name",currentUser).list();
         return userList;
     }
 

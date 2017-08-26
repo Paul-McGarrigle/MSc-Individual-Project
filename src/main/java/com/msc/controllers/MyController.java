@@ -148,6 +148,22 @@ public class MyController {
         return "redirect:/outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
     }
 
+    @RequestMapping("/unBlockUser/{username}")
+    @Transactional // Needed to avoid lazy loader error, as no session will be found
+    public String unBlockUser(@PathVariable("username") String username, Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+
+        // These attributes are used in the for loops on outstandingRequests.jsp
+        model.addAttribute("user", userService.findByUserName(username));
+        model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
+
+
+        userService.unBlockUser(currentUser, username);
+        return "redirect:/blockList"; //Specify name of .jsp file here without .jsp at the end
+    }
+
     @RequestMapping(value = "/wall", method = RequestMethod.GET)// Specified in URL
     @Transactional
     public String userWall(Model model) {
@@ -201,6 +217,28 @@ public class MyController {
         return "outstandingRequests";//Specify name of .jsp file here without .jsp at the end
     }
 
+    @RequestMapping(value = "/friendList", method = RequestMethod.GET)// Specified in URL
+    @Transactional
+    public String listFriends(ModelMap model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+        model.addAttribute("x", new Friendship());
+        model.addAttribute("listUsers", userService.listFriends(currentUser));
+        return "friendList";//Specify name of .jsp file here without .jsp at the end
+    }
+
+    @RequestMapping(value = "/blockList", method = RequestMethod.GET)// Specified in URL
+    @Transactional
+    public String listBlock(ModelMap model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        model.addAttribute("username", currentUser);
+        model.addAttribute("x", new Friendship());
+        model.addAttribute("listUsers", userService.listBlock(currentUser));
+        return "blockList";//Specify name of .jsp file here without .jsp at the end
+    }
+
     @RequestMapping("/edit/{username}")
     @Transactional // Needed to avoid lazy loader error, as no session will be found
     public String editUser(@PathVariable("username") String username, Model model){
@@ -215,13 +253,23 @@ public class MyController {
         return "homepage";//Specify name of .jsp file here without .jsp at the end
     }
 
-    @RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
-    public ModelAndView defaultPage() {
+    @RequestMapping(value = { "/welcome**" }, method = RequestMethod.GET)
+    @Transactional
+    public ModelAndView defaultPage(ModelMap m) {
 
         ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security + Hibernate Example");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUser = auth.getName(); //get logged in username
+        m.addAttribute("username", currentUser);
+        User u = userService.findByUserName(currentUser);
+        m.addAttribute("user", new Wall());
+        m.addAttribute("listUsers", userService.activityFeed(currentUser));
+        for(Wall w: userService.showUserWall(currentUser)){
+            userWall = w.getWallOwner().getUsername();
+        }
+        model.addObject("title", u.getEmail());
         model.addObject("message", "This is default page!");
-        model.setViewName("hello");
+        model.setViewName("profile");
         return model;
 
     }
@@ -238,7 +286,7 @@ public class MyController {
 
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(value = "error", required = false) String error,
                               @RequestParam(value = "logout", required = false) String logout, HttpServletRequest request) {
 
@@ -304,38 +352,6 @@ public class MyController {
         //model.addAttribute("user", new User());
         return "searchResults";//Specify name of .jsp file here without .jsp at the end
     }
-
-    /*@RequestMapping(value = "/search")
-    @Transactional
-    public String searchUser(@RequestParam("search") String search, ModelMap model){
-
-        model.addAttribute("user", new User());
-        model.addAttribute("listFriends", userService.findByUserName(search));
-
-        System.out.println(search);
-        System.out.println(userService.findByUserName(search).getUsername());
-        return "redirect:/searchResults";
-    }*/
-
-    /*@RequestMapping(value="/searching")
-    public ModelAndView Search(@RequestParam(value = "searchTerm", required = false) String pSearchTerm, HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView mav = new ModelAndView("searchResults");
-
-        mav.addObject("searchTerm", pSearchTerm);
-        mav.addObject("searchResult", userService.findByUserName(pSearchTerm));
-
-        return mav;
-    }*/
-
-    /*@RequestMapping(value = "/searching/{searchString}")
-    public String Search(@RequestParam("searchString") String searchString) {
-
-        if(searchString != null){
-            userService.findByUserName(searchString);
-        }
-
-        return "searchResults";
-    }*/
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)// Specified in URL
     @Transactional
