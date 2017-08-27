@@ -45,7 +45,6 @@ public class MyController {
     public String listUsers(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("listUsers", userService.listUsers());
-        System.out.println("Controller!!!!!!!!!!!!!!!!!");
         return "userList";//Specify name of .jsp file here without .jsp at the end
     }
 
@@ -85,7 +84,7 @@ public class MyController {
     public String removeUser(@PathVariable("username") String username){
 
         userService.removeUser(username);
-        return "redirect:/users";
+        return "redirect:/admin";
     }
 
     @RequestMapping("/addFriend/{username}")
@@ -96,7 +95,12 @@ public class MyController {
         String currentUser = auth.getName(); //get logged in username
         model.addAttribute("username", currentUser);
 
-        userService.addFriend(currentUser, username);
+        try {
+            userService.addFriend(currentUser, username);
+        } catch(Exception e){
+            System.out.print("Already Friend " + username);
+            model.addAttribute("friendName", username);
+        }
         return "redirect:/users";
     }
 
@@ -264,26 +268,28 @@ public class MyController {
         User u = userService.findByUserName(currentUser);
         m.addAttribute("user", new Wall());
         m.addAttribute("listUsers", userService.activityFeed(currentUser));
-        for(Wall w: userService.showUserWall(currentUser)){
-            userWall = w.getWallOwner().getUsername();
-        }
-        model.addObject("title", u.getEmail());
-        model.addObject("message", "This is default page!");
+        userWall = u.getUsername();
+        model.addObject("name", u.getUsername());
+        model.addObject("email", u.getEmail());
+        model.addObject("age", u.getAge());
+        model.addObject("phone", u.getPhone());
+        model.addObject("country", u.getCountry());
         model.setViewName("profile");
+        System.out.print(userWall);
         return model;
 
     }
 
     @RequestMapping(value = "/admin**", method = RequestMethod.GET)
-    public ModelAndView adminPage() {
+    public ModelAndView adminPage(Model m) {
 
         ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security + Hibernate Example");
-        model.addObject("message", "This page is for ROLE_ADMIN only!");
+        model.addObject("message", "This page is for Admin Accounts only!");
+        m.addAttribute("user", new User());
+        m.addAttribute("listUsers", userService.listUsers());
         model.setViewName("admin");
 
         return model;
-
     }
 
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
@@ -315,7 +321,7 @@ public class MyController {
         } else if (exception instanceof LockedException) {
             error = exception.getMessage();
         } else {
-            error = "Invalid username and password! Locked";
+            error = "Invalid username and password!";
         }
 
         return error;
@@ -345,11 +351,6 @@ public class MyController {
     @RequestMapping(value = "/searchResults", method = RequestMethod.GET)// Specified in URL
     @Transactional
     public String results(Model model) {
-        /*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String currentUser = auth.getName(); //get logged in username
-        model.addAttribute("z", new User());*/
-        //model.addAttribute("listUsers", userService.findByUserName(currentUser));
-        //model.addAttribute("user", new User());
         return "searchResults";//Specify name of .jsp file here without .jsp at the end
     }
 

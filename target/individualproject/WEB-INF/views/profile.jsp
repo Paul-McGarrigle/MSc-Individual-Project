@@ -2,7 +2,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="springForm" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
 <html>
@@ -13,11 +12,19 @@
 		a, li{
 			color: white;
 		}
+		h3, h5 {
+			color: #3b5998;
+			padding: 5px;
+		}
+		h6 {
+			color: white;
+			padding: 5px;
+		}
 	</style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3b5998">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" style="background-color: #3b5998">
 	<a class="navbar-brand" href="#">${pageContext.request.userPrincipal.name}</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -77,56 +84,26 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col" style="background-color: #3b5998">
-			<h6>Title : ${title}</h6>
-			<h6>Message : ${message}</h6>
-			<h6>Title : ${title}</h6>
-			<h6>Message : ${message}</h6>
-			<h6>Title : ${title}</h6>
-			<h6>Message : ${message}</h6>
-			<h6>Title : ${title}</h6>
-			<h6>Message : ${message}</h6>
-			<h6>Title : ${title}</h6>
-			<h6>Message : ${message}</h6>
+			<h6>Username : ${name}</h6>
+			<h6>Email : ${email}</h6>
+			<h6>Age : ${age}</h6>
+			<h6>Phone Number : ${phone}</h6>
+			<h6>Country : ${country}</h6>
 		</div>
 		<div class="col-10">
 			<c:if test="${!empty listUsers}">
-				<table class="tg">
-					<tr>
-						<th width="120">Comment Owner</th>
-						<th width="120">Comment</th>
-						<th width="120">Wall Owner</th>
-						<th width="60">Delete</th>
-					</tr>
+				<table class="table table-hover table-sm">
 					<c:forEach items="${listUsers}" var="user">
-						<tr>
-							<td>${user.commentOwner.username}</td>
-							<td>${user.comment}</td>
-							<td id = "owner">${user.wallOwner.username}</td>
-							<td><a class="button" href="<c:url value='/remove/${user.commentOwner.username}' />" >Delete</a></td>
-						</tr>
+						<h5>${user.commentOwner.username} wrote</h5>
+						<h3>${user.comment}</h3>
+						<h5>on ${user.wallOwner.username}'s wall</h5>
+						<br>
+						<br>
 					</c:forEach>
 				</table>
-				<c:url var="addAction" value="/addComment" ></c:url>
-
-				<form:form name = "formName" action="${addAction}" commandName="user">
-					<table>
-						<tr>
-							<td>Type:</td>
-								<%--<td><springForm:input path="comment" /></td>--%>
-							<td><input type='text' name='comment' /></td>
-							<td><springForm:errors path="comment" /></td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<input type="submit" value="<spring:message text="Post"/>" />
-
-							</td>
-						</tr>
-					</table>
-				</form:form>
 			</c:if>
 			<c:if test="${empty listUsers}">
-				<h3>No Users Returned</h3>
+				<h3>No Posts Yet!</h3>
 			</c:if>
 		</div>
 	</div>

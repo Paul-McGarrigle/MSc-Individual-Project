@@ -42,10 +42,6 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<!--<bean id="userService" class="com.msc.services.ServiceImplementation">
-		<property name="userDAO" ref="userDAO"></property>
-	</bean>-->
-
 	<bean id="myUserDetailsService" class="com.msc.authentication.MyUserDetailsService">
 		<property name="userDao" ref="userDao" />
 	</bean>

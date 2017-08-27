@@ -19,18 +19,6 @@
 		up static resources in the ${webappRoot}/resources directory-->
 	<resources mapping="/resources/**" location="/resources/" />
 
-
-
-	<!--<beans:bean
-			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix">
-			<beans:value>/WEB-INF/views/</beans:value>
-		</beans:property>
-		<beans:property name="suffix">
-			<beans:value>.jsp</beans:value>
-		</beans:property>
-	</beans:bean>-->
-
 	<!--<context:component-scan base-package="com.msc.services"/>-->
 	<context:component-scan base-package="com.msc.controllers"/>
 	<context:component-scan base-package="com.msc.model"/>
@@ -45,96 +33,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-
-	<!--&lt;!&ndash; Contains Hibernate Datasource information &ndash;&gt;-->
-	<!--<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
-				<!--destroy-method="close">-->
-		<!--<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
-		<!--<beans:property name="url"-->
-						<!--value="jdbc:mysql://localhost:3306/individual_project" />-->
-		<!--<beans:property name="username" value="root" />-->
-		<!--<beans:property name="password" value="rootroot" />-->
-	<!--</beans:bean>-->
-
-	<!--&lt;!&ndash; Hibernate 4 SessionFactory Bean definition &ndash;&gt;-->
-	<!--<beans:bean id="hibernate4AnnotatedSessionFactory"-->
-				<!--class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
-		<!--<beans:property name="dataSource" ref="dataSource" />-->
-		<!--<beans:property name="annotatedClasses">-->
-			<!--<beans:list>-->
-				<!--<beans:vaUserUser</beans:value>-->
-			<!--</beans:list>-->
-		<!--</beans:property>-->
-		<!--<beans:property name="hibernateProperties">-->
-			<!--<beans:props>-->
-				<!--<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect-->
-				<!--</beans:prop>-->
-				<!--<beans:prop key="hibernate.show_sql">true</beans:prop>-->
-			<!--</beans:props>-->
-		<!--</beans:property>-->
-	<!--</beans:bean>-->
-
-	<!--&lt;!&ndash; Provides same functionality as @bean annotation &ndash;&gt;-->
-	<!--&lt;!&ndash; The injected bean in the DAO Layer is the sessionFactory instance &ndash;&gt;-->
-	<!--&lt;!&ndash; It is linked to the DAO instance bean at the Services Layer, i.e. the bean is traversing the layers &ndash;&gt;-->
-	<!--<beans:bean id="userDAO" claJPADAOADAO">-->
-		<!--<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
-	<!--</beans:bean>-->
-
-	<!--&lt;!&ndash; Provides same functionality as @bean annotation &ndash;&gt;-->
-	<!--&lt;!&ndash; The injected bean in the Services Layer is the userDAO instance &ndash;&gt;-->
-	<!--&lt;!&ndash; It is linked to the sessionFactory instance bean at the DAO Layer, i.e. the bean is traversing the layers &ndash;&gt;-->
-	<!--<beans:bean id="userService" claServiceImplementationtion">-->
-		<!--<beans:property name="userDAO" ref="userDAO"></beans:property>-->
-	<!--</beans:bean>-->
-
-	<!--&lt;!&ndash; Specifies which package to find the controller&ndash;&gt;-->
-	<!--<context:component-scan base-package="controllers" />-->
-
-	<!--&lt;!&ndash; Specifies the Transaction Manager&ndash;&gt;-->
-	<!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
-
-	<!--&lt;!&ndash; Links Transaction Manager Bean to Session Bean, therefore all Sessions will have &ndash;&gt;-->
-	<!--&lt;!&ndash; Transactional properties for ACID purposes&ndash;&gt;-->
-	<!--<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
-		<!--<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
-	<!--</beans:bean>-->
-
-	<!--<beans:bean id="messageSource"-->
-				<!--class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
-		<!--<beans:property name="basename" value="message" />-->
-		<!--<beans:property name="defaultEncoding" value="UTF-8" />-->
-	<!--</beans:bean>-->
 	<tx:annotation-driven></tx:annotation-driven>
 
 </beans:beans>
 
-
-
-<!--
-
-<beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
-
-	<context:component-scan base-package="*" />
-
-
-
-	<bean
-			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/views/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-	</bean>
-
-</beans>-->
