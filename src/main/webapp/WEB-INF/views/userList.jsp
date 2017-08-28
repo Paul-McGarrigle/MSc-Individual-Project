@@ -5,9 +5,12 @@
 <html>
 <head>
 	<title>User Page</title>
+
+	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
+	<!-- CSS certain css style specifications taken from various StackOverflow posts -->
 	<style type="text/css">
 		h1, h2, h3, h5{
 			color:white;
@@ -37,6 +40,8 @@
 <br>
 <h2><a href="<c:url value='/welcome' />" >Back to your Profile!</a></h2>
 <h1>Search Results</h1>
+
+<!-- JSP Form Tags -->
 <c:if test="${!empty listUsers}">
 	<table class="tg" align="center">
 	<tr>

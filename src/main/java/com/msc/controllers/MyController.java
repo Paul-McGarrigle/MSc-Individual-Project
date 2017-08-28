@@ -27,13 +27,16 @@ import javax.validation.Valid;
 /**
  * Created by Paul on 24/07/2017.
  */
+// This is the Controller Class, it is essentially the backbone of a MVC WebApp as it links the
+// Models/Entities/POJOs to the Views/JSP/Webpages
+// Request mapping ensures the Method is linked to a URL, when the URL is sent for in the browser the Method is invoked
 @Controller
 public class MyController {
+    // Variables
     private ServiceUser userService;
     private String userWall = "";
     private boolean friendsWall;
     private String url;
-
 
     @Autowired(required=true)
     @Qualifier(value="userService")
@@ -41,6 +44,8 @@ public class MyController {
         userService = su;
     }
 
+    // This Method returns a List of Users the model.addatribute adds information to the view to be interperted
+    // by the JSP Spring based Tags
     @RequestMapping(value = "/users", method = RequestMethod.GET)// Specified in URL
     public String listUsers(Model model) {
         model.addAttribute("user", new User());
@@ -48,6 +53,8 @@ public class MyController {
         return "userList";//Specify name of .jsp file here without .jsp at the end
     }
 
+    // The next few Methods deal with Registering & editing user accounts they were inspired from
+    // http://www.journaldev.com/2668/spring-validation-example-mvc-validator
     @RequestMapping(value = "/register", method = RequestMethod.GET)// Specified in URL
     public String reg(Model model) {
         model.addAttribute("user", new User());
@@ -80,6 +87,7 @@ public class MyController {
 
     }
 
+    // This Method removes a user record and all subsequent records
     @RequestMapping("/remove/{username}")
     public String removeUser(@PathVariable("username") String username){
 
@@ -87,14 +95,20 @@ public class MyController {
         return "redirect:/admin";
     }
 
+    // The next few Methods deal with adding and updating Friend Requests
     @RequestMapping("/addFriend/{username}")
     public String addFriend(@PathVariable("username") String username, ModelMap model){
 
-        //userService.removeUser(username);
+        // The following code will retrieve the name of the currently logged in user,
+        // this code is repeated regularly throughout the Controller Class
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentUser = auth.getName(); //get logged in username
         model.addAttribute("username", currentUser);
 
+        // This handles the error thrown if a user tries to friend request a user who they are already friends with
+        // because this will cause a duplicate error on a Unique Key in the Database, a Unique key was used
+        // to stop duplicate relationships between users
+        // The design was inspired by http://www.codedodle.com/2014/12/social-network-friends-database.html
         try {
             userService.addFriend(currentUser, username);
         } catch(Exception e){
@@ -130,7 +144,6 @@ public class MyController {
         // These attributes are used in the for loops on outstandingRequests.jsp
         model.addAttribute("user", userService.findByUserName(username));
         model.addAttribute("listUsers", userService.listFriendRequests(currentUser));
-
 
         userService.declineFriendRequest(currentUser, username);
         return "redirect:/outstandingRequests"; //Specify name of .jsp file here without .jsp at the end
@@ -168,6 +181,7 @@ public class MyController {
         return "redirect:/blockList"; //Specify name of .jsp file here without .jsp at the end
     }
 
+    // The next few Methods deal with accessing and posting to users personal and friends walls and activity feeds
     @RequestMapping(value = "/wall", method = RequestMethod.GET)// Specified in URL
     @Transactional
     public String userWall(Model model) {
@@ -175,6 +189,8 @@ public class MyController {
         String currentUser = auth.getName(); //get logged in username
         model.addAttribute("user", new Wall());
         model.addAttribute("listUsers", userService.showUserWall(currentUser));
+
+        // Get username of the Wall Owner, i.e. the user whos wall it is
         for(Wall w: userService.showUserWall(currentUser)){
             userWall = w.getWallOwner().getUsername();
         }
@@ -188,6 +204,8 @@ public class MyController {
         String currentUser = auth.getName(); //get logged in username
         model.addAttribute("username", currentUser);
         userService.addComment(currentUser, userWall, comment);
+
+        // Determine if it is a personal wall or friend wall as this will dictate which URL is redirected to
         if(friendsWall){
             url = "redirect:/wall/"+userWall;
         } else {
@@ -210,6 +228,7 @@ public class MyController {
         return "userWall";//Specify name of .jsp file here without .jsp at the end
     }
 
+    // The next few Methods deal with listing the users in various different statuses of friendship
     @RequestMapping(value = "/outstandingRequests", method = RequestMethod.GET)// Specified in URL
     @Transactional
     public String listFriendRequests(ModelMap model) {
@@ -243,6 +262,7 @@ public class MyController {
         return "blockList";//Specify name of .jsp file here without .jsp at the end
     }
 
+    // This Method deals with editing users supplied information
     @RequestMapping("/edit/{username}")
     @Transactional // Needed to avoid lazy loader error, as no session will be found
     public String editUser(@PathVariable("username") String username, Model model){
@@ -251,23 +271,29 @@ public class MyController {
         return "register"; //Specify name of .jsp file here without .jsp at the end
     }
 
+    // This Method redirects to a default page if a URL is not found
     @RequestMapping(method = RequestMethod.GET)
     public String printHello(ModelMap model) {
         model.addAttribute("message", "Login or Create an Account!");
         return "homepage";//Specify name of .jsp file here without .jsp at the end
     }
 
+    // This Method links to the users Profile Page, it is also the redirected page when a login attempt has been successful
     @RequestMapping(value = { "/welcome**" }, method = RequestMethod.GET)
     @Transactional
     public ModelAndView defaultPage(ModelMap m) {
-
+        // Get logged in user information
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentUser = auth.getName(); //get logged in username
         m.addAttribute("username", currentUser);
+
+        // List Activity Feed
         User u = userService.findByUserName(currentUser);
         m.addAttribute("user", new Wall());
         m.addAttribute("listUsers", userService.activityFeed(currentUser));
+
+        // Display user information
         userWall = u.getUsername();
         model.addObject("name", u.getUsername());
         model.addObject("email", u.getEmail());
@@ -275,11 +301,12 @@ public class MyController {
         model.addObject("phone", u.getPhone());
         model.addObject("country", u.getCountry());
         model.setViewName("profile");
-        System.out.print(userWall);
         return model;
 
     }
 
+    // The next few Methods deal with logging in a user, they were modified and taken directly from
+    // http://www.mkyong.com/spring-security/spring-security-hibernate-annotation-example/
     @RequestMapping(value = "/admin**", method = RequestMethod.GET)
     public ModelAndView adminPage(Model m) {
 
@@ -295,7 +322,6 @@ public class MyController {
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(value = "error", required = false) String error,
                               @RequestParam(value = "logout", required = false) String logout, HttpServletRequest request) {
-
         ModelAndView model = new ModelAndView();
         if (error != null) {
             model.addObject("error", getErrorMessage(request, "SPRING_SECURITY_LAST_EXCEPTION"));
@@ -310,7 +336,7 @@ public class MyController {
 
     }
 
-    // customize the error message
+    // This Method customises the error message
     private String getErrorMessage(HttpServletRequest request, String key) {
 
         Exception exception = (Exception) request.getSession().getAttribute(key);
@@ -327,13 +353,13 @@ public class MyController {
         return error;
     }
 
-    // for 403 access denied page
+    // This Method redirects to the 403 access denied page when authentication fails
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public ModelAndView accesssDenied() {
 
         ModelAndView model = new ModelAndView();
 
-        // check if user is login
+        // Checks if user is logged in
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetail = (UserDetails) auth.getPrincipal();
@@ -348,6 +374,8 @@ public class MyController {
 
     }
 
+    // The next two Methods deal with returning any user accounts that match the search string
+    // specified in the search bar on the profile page
     @RequestMapping(value = "/searchResults", method = RequestMethod.GET)// Specified in URL
     @Transactional
     public String results(Model model) {

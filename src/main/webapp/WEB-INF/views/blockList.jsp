@@ -11,6 +11,7 @@
 <%@ page session="true" %>
 <html>
 <head>
+    <!-- CSS certain css style specifications taken from various StackOverflow posts -->
     <title>Outstanding Friend Requests</title>
     <style type="text/css">
         h1, h2, h3, h5{
@@ -39,6 +40,7 @@
 </head>
 <body style="background-color: #3b5998">
 <br>
+<!-- JSP Tags -->
 <h2><a href="<c:url value='/welcome' />" >Back to your Profile!</a></h2>
 <h3>Blocked Users List</h3>
 <c:if test="${!empty listUsers}">

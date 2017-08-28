@@ -8,14 +8,18 @@ import static javax.persistence.GenerationType.IDENTITY;
 /**
  * Created by Paul on 12/08/2017.
  */
+// This Class was entirely taken from http://www.mkyong.com/spring-security/spring-security-hibernate-annotation-example/
+// it specifies the user roles associated with each user account for Authentication and security reasons
 @Entity
 @Table(name = "user_roles", catalog = "individual_project", uniqueConstraints = @UniqueConstraint(columnNames = { "role", "username" }))
 public class UserRole{
 
+    // Variables
     private Integer userRoleId;
     private User user;
     private String role;
 
+    // Constructors
     public UserRole() {
     }
 
@@ -24,6 +28,7 @@ public class UserRole{
         this.role = role;
     }
 
+    // Getters & Setters
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "user_role_id",
@@ -36,6 +41,7 @@ public class UserRole{
         this.userRoleId = userRoleId;
     }
 
+    // Many to one relationship with User Class
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "username", nullable = false)
     public User getUser() {

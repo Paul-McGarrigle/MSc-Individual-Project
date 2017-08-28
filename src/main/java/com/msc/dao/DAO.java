@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * Created by Paul on 24/07/2017.
  */
+// DAO Interface
 public interface DAO {
-    //public Collection<User> getUsers();
     public void addUser(User u, UserRole ur);
     public void updateUser(User u);
     public List<User> listUsers();
@@ -30,5 +30,4 @@ public interface DAO {
     public List<User> searchUsers(String username);
     public List<Friendship> listFriends(String currentUser);
     public List<Friendship> listBlock(String currentUser);
-    //public void addUserRole(UserRole ur);
 }

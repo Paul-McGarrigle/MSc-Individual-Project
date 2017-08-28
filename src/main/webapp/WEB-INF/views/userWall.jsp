@@ -13,11 +13,12 @@
 <html>
 <head>
     <title>User Wall</title>
+
+    <!-- CSS certain css style specifications taken from various StackOverflow posts -->
     <style type="text/css">
         h1, h2, h3, h5{
             color:white;
             text-align: center;
-
         }
 
         .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
@@ -42,6 +43,8 @@
 <br>
 <h2><a href="<c:url value='/welcome' />" >Back to your Profile!</a></h2>
 <h3><b id = "userName" name = "userName"></b> Wall</h3>
+
+<!-- JSP Form Tags-->
 <c:url var="addAction" value="/addComment" ></c:url>
 
 <form:form name = "formName" action="${addAction}" commandName="user">
@@ -76,6 +79,7 @@
 
 </body>
 <footer>
+    <!-- JavaScript -->
     <script>
         var x = document.getElementById("owner").firstChild.nodeValue;
         console.log(x);

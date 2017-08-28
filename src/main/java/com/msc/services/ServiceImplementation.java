@@ -14,11 +14,12 @@ import java.util.List;
 /**
  * Created by Paul on 25/07/2017.
  */
+// These Methods are inherited from the ServiceUser Interface and link the Controller Methods to the DAO Methods
 public class ServiceImplementation implements ServiceUser {
     @EJB
     private DAO userDAO;
 
-    // Constructors are for beans
+    // Constructor for beans
     public void setUserDAO(DAO userDAO) {
         this.userDAO = userDAO;
     }

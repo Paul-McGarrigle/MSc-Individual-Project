@@ -12,10 +12,13 @@
 <%@ page session="false" %>
 <html>
 <head>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
     <title>Register</title>
+
+    <!-- CSS certain css style specifications taken from various StackOverflow posts -->
     <style>
         h1, h2{
             color:white;
@@ -45,15 +48,7 @@
     Register to create an Account!
 </h1>
 
-<%--<style type="text/css">
-    .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
-    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
-    .tg .tg-4eph{background-color:#f9f9f9}
-
-
-</style>--%>
-
+<!-- JSP Form Tags -->
 <c:url var="addAction" value="/user/add" ></c:url>
 
 <form:form action="${addAction}" commandName="user" class="form-group" id="reg-box">
@@ -100,15 +95,6 @@
             <td><springForm:input path="age" class="form-control"/></td>
             <td><springForm:errors path="age" cssClass="error" /></td>
         </tr>
-        <%--<tr>
-            <td>Gender:</td>
-            <td><springForm:select path="gender">
-                <springForm:option value="" label="Select Gender" />
-                <springForm:option value="MALE" label="Male" />
-                <springForm:option value="FEMALE" label="Female" />
-            </springForm:select></td>
-            <td><springForm:errors path="gender" cssClass="error" /></td>
-        </tr>--%>
         <tr>
             <td>Birthday:</td>
             <td><springForm:input path="birthday" placeholder="MM/dd/yyyy" class="form-control"/></td>

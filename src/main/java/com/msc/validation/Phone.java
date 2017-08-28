@@ -7,6 +7,9 @@ import java.lang.annotation.*;
 /**
  * Created by Paul on 02/08/2017.
  */
+// This entire Annotated Interface is taken from http://www.journaldev.com/2668/spring-validation-example-mvc-validator
+// It essentially creates the custom Annotation @Phone which can then be referenced in other Classes
+// any field with @Phone will be validated  by PhoneValidator Class
 @Documented
 @Constraint(validatedBy = PhoneValidator.class)
 @Target( { ElementType.METHOD, ElementType.FIELD })

@@ -12,7 +12,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<!--Determines the URL associated with servelet-->
+	<!-- Determines the URL associated with servelet -->
 	<servlet-mapping>
 		<servlet-name>mvc</servlet-name>
 		<url-pattern>/</url-pattern>
@@ -22,6 +22,7 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<!-- Links to XML based configuration files -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>

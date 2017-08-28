@@ -2,21 +2,14 @@
 <%@page session="true"%>
 <html>
 <head>
-	<!-- Javascript -->
-	<%--script <src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="/WEB-INF/views/assets/css/bootstrap.min.css">--%>
-	<%--<link rel="stylesheet" href="assets/css/style1.css">--%>
-	<link type="text/css" href="<c:url value="/resources/css/style1.css" />" rel="stylesheet">
+	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-	<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style1.css" />--%>
-	<%--<link rel="stylesheet" href="assets/css/formplexy-bootstrap-dark.css">
-	<link rel="stylesheet" href="assets/css/iconfont.css">--%>
+
 
 	<title>Login Page</title>
+
+	<!-- CSS certain css style specifications taken from various StackOverflow posts -->
 	<style>
 		h1, h2{
 			color:white;
@@ -55,8 +48,9 @@
 		}
 	</style>
 </head>
+
+<!-- JSP Form Tags -->
 <body onload='document.loginForm.username.focus();' style="background-color: #3b5998">
-<%--<div class = "jumbotron">Hello World</div>--%>
 
 	<h1>Login to your account</h1>
 

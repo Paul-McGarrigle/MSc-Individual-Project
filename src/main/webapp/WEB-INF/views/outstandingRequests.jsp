@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Outstanding Friend Requests</title>
+    <!-- CSS certain css style specifications taken from various StackOverflow posts -->
     <style type="text/css">
         h1, h2, h3, h5{
             color:white;
@@ -41,6 +42,8 @@
 <br>
 <h2><a href="<c:url value='/welcome' />" >Back to your Profile!</a></h2>
 <h3>Users List</h3>
+
+<!-- JSP Form Tags -->
 <c:if test="${!empty listUsers}">
     <table class="tg" align="center">
         <tr>

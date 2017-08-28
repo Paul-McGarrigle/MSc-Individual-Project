@@ -1,7 +1,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
 <html>
+<!-- Ideas for page taken from http://www.mkyong.com/spring-security/spring-security-hibernate-annotation-example/ -->
 <head>
+	<!-- CSS certain css style specifications taken from various StackOverflow posts -->
 	<style type="text/css">
 		h1, h2, h3, h5{
 			color:white;
@@ -30,6 +32,7 @@
 <body style="background-color: #3b5998">
 	<h1>${message}</h1>
 
+	<!-- JSP Form Tags -->
 	<c:url value="/j_spring_security_logout" var="logoutUrl" />
 	<form action="${logoutUrl}" method="post" id="logoutForm">
 		<input type="hidden" name="${_csrf.parameterName}"

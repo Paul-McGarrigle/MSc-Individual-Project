@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Created by Paul on 25/07/2017.
  */
+// Services Interface
 public interface ServiceUser {
     public Collection<User> getUsers();
     public void addUser(User u, UserRole ur);
@@ -31,5 +32,4 @@ public interface ServiceUser {
     public List<User> searchUsers(String username);
     public List<Friendship> listFriends(String currentUser);
     public List<Friendship> listBlock(String currentUser);
-    //public void addUserRole(UserRole ur);
 }

@@ -17,8 +17,10 @@
 		<intercept-url pattern="/userWall" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 		<intercept-url pattern="/users" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 
-		<!-- access denied page -->
+		<!-- If the user has no access to the specified resource they will be sent to the 403 page -->
 		<access-denied-handler error-page="/403" />
+
+		<!-- Form login specifications -->
 		<form-login
 				login-page="/login"
 				default-target-url="/welcome"
@@ -26,12 +28,13 @@
 				username-parameter="username"
 				password-parameter="password" />
 		<logout logout-success-url="/login?logout" />
-		<!-- enable csrf protection -->
 		<csrf />
 	</http>
 
+	<!-- Shows Annotations are in use -->
 	<tx:annotation-driven></tx:annotation-driven>
 
+	<!-- Links to User Authentication Class to authenticate or fail user -->
 	<authentication-manager>
 		<authentication-provider user-service-ref="myUserDetailsService" >
 			<password-encoder hash="bcrypt" />

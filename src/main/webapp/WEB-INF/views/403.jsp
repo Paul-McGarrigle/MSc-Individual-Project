@@ -1,6 +1,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
+
+<!-- Ideas for page taken from http://www.mkyong.com/spring-security/spring-security-hibernate-annotation-example/ -->
 <head>
+	<!-- CSS certain css style specifications taken from various StackOverflow posts -->
 	<style type="text/css">
 		h1, h2, h3, h5{
 			color:white;
@@ -28,7 +31,7 @@
 </head>
 <body style="background-color: #3b5998">
 	<h1>HTTP Status 403 - Access is denied</h1>
-
+	<!-- JSP Form Tags -->
 	<c:choose>
 		<c:when test="${empty username}">
 			<h2>You need an Admin account to access thia page, you are unregistered</h2>

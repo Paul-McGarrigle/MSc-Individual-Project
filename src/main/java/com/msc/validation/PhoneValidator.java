@@ -6,6 +6,8 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * Created by Paul on 02/08/2017.
  */
+// This entire Class is taken from http://www.journaldev.com/2668/spring-validation-example-mvc-validator
+// This class provides the validation for the custom Annotation @Phone
 public class PhoneValidator implements ConstraintValidator<Phone, String> {
 
     @Override

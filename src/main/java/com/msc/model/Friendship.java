@@ -12,6 +12,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "friendship", catalog = "individual_project", uniqueConstraints = @UniqueConstraint(columnNames = { "user_one_id", "user_two_id" }))
 public class Friendship implements Serializable{
+    // Variables
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "friendship_id",
@@ -21,14 +22,17 @@ public class Friendship implements Serializable{
     // One side of relationship is FetchType.Lazy but Many side must be FetchType.Eager because with lazy data
     // is loaded when needed but collections will not be loaded in time, therefore Many side must be eager or
     // org.hibernate.LazyInitializationException will be thrown
+    // Many to one relationship with User Class
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_one_id", nullable = false)
     private User user1;
 
+    // Many to one relationship with User Class
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_two_id", nullable = false)
     private User user2;
 
+    // Many to one relationship with User Class
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "action_user_id", nullable = false)
     private User owner;
@@ -38,9 +42,11 @@ public class Friendship implements Serializable{
     // 1 = accepted
     // 2 = declined
     // 3 = blocked
+    // The design was inspired by http://www.codedodle.com/2014/12/social-network-friends-database.html
     @Column(name = "friendship_status", nullable = false)
     private int status;
 
+    // Constructors
     public Friendship(){}
 
     public Friendship(User user1, User user2, int status, User owner) {
@@ -50,6 +56,7 @@ public class Friendship implements Serializable{
         this.owner = owner;
     }
 
+    // Getters & Setters
     public Integer getFriendshipId() {
         return friendshipId;
     }
