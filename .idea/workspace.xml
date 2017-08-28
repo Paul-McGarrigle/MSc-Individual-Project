@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="651f6630-bb5f-45bb-96c0-c14a163cf158" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/authentication/MyUserDetailsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/authentication/MyUserDetailsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/controllers/MyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/controllers/MyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/dao/DAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/Friendship.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/UserRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/UserRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/model/Wall.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/model/Wall.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceImplementation.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceImplementation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/services/ServiceUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/validation/Phone.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/validation/Phone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/msc/validation/PhoneValidator.java" afterPath="$PROJECT_DIR$/src/main/java/com/msc/validation/PhoneValidator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-database.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-database.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-security.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/403.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/403.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/blockList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/blockList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/friendList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/friendList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/outstandingRequests.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchResults.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/searchResults.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userWall.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userWall.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SQL/project.sql" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
-              <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="103" />
+              <caret line="102" column="4" lean-forward="false" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -70,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/UserRole.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="426">
-              <caret line="43" column="4" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="47" />
+              <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -1297,12 +1269,12 @@
       <workItem from="1503748181092" duration="22278000" />
       <workItem from="1503775588913" duration="8597000" />
       <workItem from="1503843900492" duration="24736000" />
-      <workItem from="1503911422552" duration="5475000" />
+      <workItem from="1503911422552" duration="5648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352319000" />
+    <option name="totallyTimeSpent" value="352492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
@@ -1638,7 +1610,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/model/UserRole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
-          <caret line="43" column="4" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="47" />
+          <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -1654,7 +1626,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/msc/dao/JPADAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="103" />
+          <caret line="102" column="4" lean-forward="false" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="103" />
           <folding />
         </state>
       </provider>
